@@ -1,0 +1,10 @@
+#game-container {
+  border: 0.15rem solid white; 
+  height: auto;
+  width: 80%;  
+}
+
+#title {
+  text-align: center; 
+  font-size: 1.5rem; 
+}
