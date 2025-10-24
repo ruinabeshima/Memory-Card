@@ -18,3 +18,10 @@
   width: 15%; 
   border-radius: 0.15rem; 
 }
+
+.card-container {
+  margin-top: 1rem; 
+  border: 0.15rem solid white; 
+  width: 100%; 
+  height: 100%; 
+}
