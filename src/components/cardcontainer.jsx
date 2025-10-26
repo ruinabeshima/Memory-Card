@@ -8,6 +8,9 @@ function CardContainer(){
       <GameCard />
       <GameCard />
       <GameCard />   
+      <GameCard /> 
+      <GameCard /> 
+      
     </div>
   );
 }

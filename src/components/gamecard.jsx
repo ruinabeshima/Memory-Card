@@ -2,7 +2,7 @@ import "../styles/game.css"
 
 function GameCard(props){
   return (
-    <div id="game-card">
+    <div className="game-card">
       <p>{props.name}</p>
       <img src={props.img}></img>
     </div>
