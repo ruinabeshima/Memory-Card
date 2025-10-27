@@ -28,7 +28,10 @@ function CardContainer(props){
   }, [])
 
   function shuffleArray(array) {
-    const newArr = [...array]; // copy so we don't mutate state
+    const newArr = array.map(item => ({
+    ...item,
+    name: item.name[0].toUpperCase() + item.name.slice(1).toLowerCase()
+  }));
     for (let i = newArr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
@@ -40,7 +43,7 @@ function CardContainer(props){
   return (
     <div className="card-container">
       {shuffleArray(allData).map(data => (
-        <GameCard key={data.id} name={data.name} handleCardClick = {props.handleCardClick} dataid={data.id}/>
+        <GameCard key={data.id} name={data.name} image={data.sprites.front_default} handleCardClick = {props.handleCardClick} dataid={data.id}/>
       ))}
     </div>
   );
