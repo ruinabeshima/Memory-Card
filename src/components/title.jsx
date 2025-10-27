@@ -2,7 +2,7 @@ import "../styles/game.css"
 
 function Title(){
   return (
-    <p id="title">F1 Drivers Memory Game</p>
+    <p id="title">Memory Game</p>
   ); 
 }
 
