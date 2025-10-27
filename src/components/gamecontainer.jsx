@@ -6,14 +6,28 @@ import "../styles/game.css"
 import { useState } from "react";
 
 function GameContainer(){
-  const [score] = useState(0);
-  const [bestScore] = useState(0);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [clickedCards, setClickedCards] = useState(new Set());
+
+  const handleCardClick = (id) => {
+    if (clickedCards.has(id)) {
+      setScore(0);
+      setClickedCards(new Set());
+    } else {
+      const newClicked = new Set(clickedCards);
+      newClicked.add(id);
+      setClickedCards(newClicked);
+      setScore(score + 1);
+      setBestScore(prev => Math.max(prev, score + 1));
+    }
+  }
 
   return (
     <div id="game-container">
       <Title />
       <ScoreBoard score = {score} bestScore = {bestScore}/>
-      <CardContainer />
+      <CardContainer handleCardClick = {handleCardClick}/>
     </div>
   ); 
 }

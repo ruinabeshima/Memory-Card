@@ -2,7 +2,7 @@ import "../styles/game.css"
 import GameCard from "./gamecard";
 import {useEffect, useState} from "react"
 
-function CardContainer(){
+function CardContainer(props){
   const [allData, setAllData] = useState([])
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function CardContainer(){
   return (
     <div className="card-container">
       {allData.map(data => (
-        <GameCard name={data.name} />
+        <GameCard key={data.id} name={data.name} handleCardClick = {props.handleCardClick} dataid={data.id}/>
       ))}
     </div>
   );
