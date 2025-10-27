@@ -1,6 +1,7 @@
 import Title from "./title";
 import ScoreBoard from "./scoreboard";
 import GameCard from "./cardcontainer";
+import CardContainer from "./cardcontainer";
 import "../styles/game.css"
 import { useState } from "react";
 
@@ -12,7 +13,7 @@ function GameContainer(){
     <div id="game-container">
       <Title />
       <ScoreBoard score = {score} bestScore = {bestScore}/>
-      <GameCard />
+      <CardContainer />
     </div>
   ); 
 }
