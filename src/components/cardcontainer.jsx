@@ -9,7 +9,7 @@ function CardContainer(props){
     async function GetData(){
       try{
 
-        const names = ["bulbasaur", "charmander", "squirtle", "charmeleon", "ivysaur", "metapod", "venusaur", "pikachu", "raichu", "jigglypuff", "poliwag", "golbat", "nidoqueen", "raticate", "kakuna", "clefable", "ekans", "blastoise", "weedle", "fearow"]
+        let names = ["bulbasaur", "charmander", "squirtle", "charmeleon", "ivysaur", "metapod", "venusaur", "pikachu", "raichu", "jigglypuff", "poliwag", "golbat", "nidoqueen", "raticate", "kakuna", "clefable", "ekans", "blastoise", "weedle", "fearow"]
 
         const responses = await Promise.all(
           names.map(async (name) => {
@@ -27,10 +27,19 @@ function CardContainer(props){
     GetData()
   }, [])
 
+  function shuffleArray(array) {
+    const newArr = [...array]; // copy so we don't mutate state
+    for (let i = newArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    return newArr;
+  }
 
+  
   return (
     <div className="card-container">
-      {allData.map(data => (
+      {shuffleArray(allData).map(data => (
         <GameCard key={data.id} name={data.name} handleCardClick = {props.handleCardClick} dataid={data.id}/>
       ))}
     </div>

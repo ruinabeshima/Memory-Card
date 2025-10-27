@@ -1,6 +1,5 @@
 import Title from "./title";
 import ScoreBoard from "./scoreboard";
-import GameCard from "./cardcontainer";
 import CardContainer from "./cardcontainer";
 import "../styles/game.css"
 import { useState } from "react";
@@ -19,7 +18,7 @@ function GameContainer(){
       newClicked.add(id);
       setClickedCards(newClicked);
       setScore(score + 1);
-      setBestScore(prev => Math.max(prev, score + 1));
+      setBestScore(score + 1);
     }
   }
 
